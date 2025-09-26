@@ -4,13 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drug Creation and Testing AI</title>
+    <title>Enhanced Drug Creation and Testing AI</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Include Chart.js for visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include SmilesDrawer for molecule visualization -->
+    <script src="https://unpkg.com/smiles-drawer@2.0.1/dist/smiles-drawer.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>Drug Creation and Testing AI</h1>
-        <p>This is a simulated AI for educational purposes only. It generates fictional drug compounds and tests them virtually. No real drugs are created or tested.</p>
+        <h1>Enhanced Drug Creation and Testing AI</h1>
+        <p>This is an expanded simulated AI for educational purposes only. It generates fictional drug compounds using predefined bases and modifications, visualizes molecules, tests them virtually with enhanced metrics, and provides visualizations. No real drugs are created or tested. All simulations are fictional.</p>
         
         <label for="disease">Target Disease:</label>
         <input type="text" id="disease" placeholder="e.g., Headache">
@@ -19,12 +23,32 @@
         <select id="compound-base">
             <option value="aspirin-like">Aspirin-like</option>
             <option value="penicillin-like">Penicillin-like</option>
+            <option value="ibuprofen-like">Ibuprofen-like</option>
             <option value="custom">Custom</option>
         </select>
+        
+        <label for="modifiers">Desired Modifiers (comma-separated):</label>
+        <input type="text" id="modifiers" placeholder="e.g., anti-inflammatory, bioavailability">
         
         <button onclick="createAndTestDrug()">Create and Test Drug</button>
         
         <div id="output"></div>
+        
+        <div id="history">
+            <h2>Test History</h2>
+            <table id="history-table">
+                <thead>
+                    <tr>
+                        <th>Disease</th>
+                        <th>Compound</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        
+        <button onclick="clearHistory()">Clear History</button>
     </div>
     
     <script src="script.js"></script>
